@@ -83,6 +83,7 @@ h1,h2,h3{ font-family: var(--serif); font-weight:600; letter-spacing:-0.01em; }
 }
 .ph-img.zoom{ transition: transform 1.1s var(--ease); }
 .ph-card:hover .ph-img.zoom{ transform: scale(1.08) rotate(0.3deg); }
+.ph-img.photo{ background-size:cover; background-position:center; animation:none; }
 
 /* ================= Buttons ================= */
 .btn{
