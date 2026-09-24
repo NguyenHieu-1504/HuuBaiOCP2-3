@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     VinhTay: ['vt01.jpg', 'vt02.webp', 'vt03.jpg', 'vt04.jpg', 'vt05.jpg', 'vt06.jpg', 'vt07.png', 'vt08.jpg', 'vt09.jpg'],
     VinhThienDuong: ['vtd01.jpg', 'vtd02.jpeg', 'vtd03.webp', 'vtd04.jpg', 'vtd04.webp', 'vtd05.webp', 'vtd06.jpg'],
     VinhXanh: ['vx01.jpg', 'vx02.jpg', 'vx03.png', 'vx04.jpg', 'vx05.jpg', 'vx06.jpg', 'vx07.jpg', 'vx08.jpg', 'vx09.png'],
-    DaoNgoc: ['dn01.jpg', 'dn02.jpg', 'dn03.png', 'dn04.png', 'dn05.jpg', 'dn06.jpg', 'dn07.png', 'dn08.jpg', 'dn09.jpg', 'dn10.jpg']
+    DaoNgoc: ['dn01.jpg', 'dn02.jpg', 'dn03.jpg', 'dn04.jpg', 'dn05.jpg', 'dn06.jpg', 'dn07.jpg', 'dn08.jpg', 'dn09.jpg', 'dn10.jpg', '1788944100225_5159154718858587108_g1770917234949095407_086cfdaffa5026819329dfd9005fb879.jpg', '1788944100233_5159154718858587108_g1770917234949095407_81e6cd25121bb402048b875f80710d34.jpg']
   };
   const imageUrl = (folder, file) => folder === 'O3Overview' ? `images/O3/${file}` : `images/O3/${folder}/${file}`;
   const setPhoto = (element, folder, index = 0) => {
@@ -31,9 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   const currentPage = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
   const currentFolder = o3Folders[currentPage];
+  document.querySelectorAll('[data-dao-photo]').forEach((element) => {
+    setPhoto(element, 'DaoNgoc', o3Images.DaoNgoc.indexOf(element.dataset.daoPhoto));
+  });
+  let currentPhotoIndex = 0;
   document.querySelectorAll('.ph-img').forEach((element, elementIndex) => {
+    if (element.dataset.daoPhoto) return;
     if (currentFolder) {
-      setPhoto(element, currentFolder, elementIndex);
+      setPhoto(element, currentFolder, currentPhotoIndex++);
       return;
     }
     const link = element.closest('a');
