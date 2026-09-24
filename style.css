@@ -85,6 +85,24 @@ h1,h2,h3{ font-family: var(--serif); font-weight:600; letter-spacing:-0.01em; }
 .ph-card:hover .ph-img.zoom{ transform: scale(1.08) rotate(0.3deg); }
 .ph-img.photo{ background-size:cover; background-position:center; animation:none; }
 
+.dao-ngoc-hero{
+  background-image: linear-gradient(90deg, rgba(243,238,226,.96) 0%, rgba(243,238,226,.86) 48%, rgba(243,238,226,.24) 100%), url('images/O3/DaoNgoc/dn01.jpg');
+  background-size:cover;
+  background-position:center;
+}
+.home-hero-dao-ngoc{
+  overflow:hidden;
+  position:relative;
+  background-image: linear-gradient(90deg, rgba(243,238,226,.97) 0%, rgba(243,238,226,.88) 48%, rgba(243,238,226,.3) 100%), url('images/O3/DaoNgoc/dn01.jpg');
+  background-size:cover;
+  background-position:center;
+}
+.feature.dao-ngoc-feature{
+  background-image: linear-gradient(90deg, rgba(8,36,51,.96) 0%, rgba(10,48,73,.88) 52%, rgba(8,36,51,.66) 100%), url('images/O3/DaoNgoc/dn01.jpg');
+  background-size:cover;
+  background-position:center;
+}
+
 /* ================= Buttons ================= */
 .btn{
   position:relative;
