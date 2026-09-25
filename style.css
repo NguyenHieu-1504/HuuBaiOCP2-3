@@ -94,7 +94,19 @@ h1,h2,h3{ font-family: var(--serif); font-weight:600; letter-spacing:-0.01em; }
 .home-hero-dao-ngoc{
   overflow:hidden;
   position:relative;
-  background: radial-gradient(ellipse at 88% 12%, #fff 0%, #F8F5ED 34%, var(--sand) 100%);
+  background-image: linear-gradient(90deg, rgba(243,238,226,.96) 0%, rgba(243,238,226,.88) 48%, rgba(243,238,226,.3) 100%), url('images/O3/o3-05-hero.jpg');
+  background-size:cover;
+  background-position:center;
+}
+.ocean-park-2-hero{
+  background-image:linear-gradient(90deg,rgba(243,238,226,.96) 0%,rgba(243,238,226,.86) 48%,rgba(243,238,226,.3) 100%),url('images/O2/o2-04.jpg');
+  background-size:cover;
+  background-position:center;
+}
+.ocean-park-3-hero{
+  background-image:linear-gradient(90deg,rgba(243,238,226,.96) 0%,rgba(243,238,226,.86) 48%,rgba(243,238,226,.3) 100%),url('images/O3/o3-07-hero.jpg');
+  background-size:cover;
+  background-position:center;
 }
 .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
 .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
