@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ocean Park 2 & 3 — Đảo Ngọc</title>
-<meta name="description" content="Tổng quan Vinhomes Ocean Park 2 & 3, tiêu điểm phân khu Đảo Ngọc">
+<title>Ocean Park 2 & 3 | Khám phá 16 phân khu</title>
+<meta name="description" content="Khám phá Ocean Park 2 The Empire và Ocean Park 3 The Crown: tổng quan dự án, hình ảnh và thông tin 16 phân khu tại Hưng Yên.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..600&family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
 <header class="site">
   <div class="container nav-row">
     <a href="index.html" class="logo">OCEAN PARK <span>2 & 3</span></a>
-    <nav class="links">
+    <nav class="links" id="primary-navigation">
       <a href="index.html">Trang chủ</a>
       <a href="ocean-park-2.html">Ocean Park 2</a>
       <a href="ocean-park-3.html">Ocean Park 3</a>
@@ -24,33 +24,40 @@
     </nav>
     <div class="nav-cta">
       <a href="index.html#lien-he" class="btn btn-gold">Đăng ký tư vấn</a>
-      <button class="menu-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" aria-label="Mở menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <section class="hero home-hero-dao-ngoc">
-  <div class="container hero-grid" style="display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center;">
+  <div class="container hero-grid">
     <div>
-      <span class="eyebrow reveal">Phân khu tiêu điểm · Ocean Park 3</span>
-      <h1 class="reveal" style="font-size:clamp(2.4rem,4.6vw,3.8rem); line-height:1.08; margin:14px 0 20px; max-width:15ch;">Đảo Ngọc — ốc đảo Hy Lạp riêng tư giữa lòng Ocean Park 3</h1>
-      <p class="reveal" style="font-size:1.08rem; max-width:52ch; color:#2B3D48; margin-bottom:32px;">213 biệt thự đơn lập và song lập trong không gian biệt lập gắn với cảnh quan và mặt nước đặc trưng — cùng khám phá toàn cảnh 16 phân khu của Ocean Park 2 & 3.</p>
-      <div class="reveal" style="display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px;">
-        <a href="dao-ngoc.html" class="btn btn-gold">Khám phá Đảo Ngọc</a>
-        <a href="#tong-quan" class="btn btn-ghost">Xem tổng quan dự án</a>
+      <span class="eyebrow reveal">THE EMPIRE · THE CROWN · HƯNG YÊN</span>
+      <h1 class="reveal" style="font-size:clamp(2.4rem,4.6vw,3.8rem); line-height:1.08; margin:14px 0 20px; max-width:15ch;">Khám phá Ocean Park 2 & 3</h1>
+      <p class="reveal" style="font-size:1.08rem; max-width:52ch; color:#2B3D48; margin-bottom:32px;">Hai đại đô thị, 16 phân khu với những phong cách sống riêng. Bắt đầu từ The Empire hoặc The Crown để tìm khu vực phù hợp với bạn.</p>
+      <div class="reveal hero-actions">
+        <a href="ocean-park-2.html" class="btn btn-gold">Khám phá Ocean Park 2 <span aria-hidden="true">→</span></a>
+        <a href="ocean-park-3.html" class="btn btn-ghost">Khám phá Ocean Park 3 <span aria-hidden="true">→</span></a>
       </div>
       <div class="stat-strip reveal">
-        <div class="stat"><span class="num" data-count="16">0</span><span class="label">phân khu</span></div>
-        <div class="stat"><span class="num" data-count="21058">0</span><span class="label">tổng số căn (ước tính)</span></div>
-        <div class="stat"><span class="num" data-count="213">0</span><span class="label">biệt thự Đảo Ngọc</span></div>
-        <div class="stat"><span class="num" style="font-size:1.3rem;">Hưng Yên</span><span class="label">vị trí dự án</span></div>
+        <div class="stat"><span class="num">08</span><span class="label">phân khu · Ocean Park 2</span></div>
+        <div class="stat"><span class="num">08</span><span class="label">phân khu · Ocean Park 3</span></div>
+        <div class="stat"><span class="num">294 ha</span><span class="label">quy mô Ocean Park 3</span></div>
       </div>
     </div>
-    <div class="tilt reveal-scale parallax" data-depth="10" style="aspect-ratio:1/1;">
-      
-  <div class="ph-img zoom " style="--g1:#0A3049; --g2:#D9B876;">
-    <span class="ph-label">Đảo Ngọc</span>
-  </div>
+    <div class="home-project-grid reveal-scale" role="group" aria-label="Chọn khu vực">
+      <a href="ocean-park-2.html" class="home-project-card tilt">
+        <div class="ph-img zoom" style="--g1:#0A3049; --g2:#1477A6;"></div>
+        <span class="project-kicker">THE EMPIRE · 08 PHÂN KHU</span>
+        <strong>Ocean Park 2</strong>
+        <span class="project-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="ocean-park-3.html" class="home-project-card tilt">
+        <div class="ph-img zoom" style="--g1:#0A3049; --g2:#2FA79A;"></div>
+        <span class="project-kicker">THE CROWN · 08 PHÂN KHU</span>
+        <strong>Ocean Park 3</strong>
+        <span class="project-arrow" aria-hidden="true">↗</span>
+      </a>
     </div>
   </div>
 </section>
@@ -84,6 +91,7 @@
         </div>
       </div>
     </div>
+    <p class="data-note">Quy mô, số lượng sản phẩm và thông tin phân khu trên trang được tổng hợp để tham khảo.</p>
   </div>
 </section>
 
@@ -171,7 +179,12 @@
       <h2>Mỗi phân khu, một bản sắc riêng</h2>
       <p>Lướt qua toàn bộ các phân khu của Ocean Park 2 & 3 — bấm vào để xem chi tiết từng khu vực.</p>
     </div>
+    <nav class="zone-jumps" aria-label="Chọn khu vực phân khu">
+      <a href="#op2-khu">Ocean Park 2 <span>08 phân khu ↓</span></a>
+      <a href="#op3-khu">Ocean Park 3 <span>08 phân khu ↓</span></a>
+    </nav>
     <div class="card-grid">
+      <div class="zone-heading" id="op2-khu"><span>THE EMPIRE</span><h3>Ocean Park 2</h3><p>08 phân khu · chọn một khu để xem chi tiết</p></div>
       
       <a href="op2-cha-la.html" class="sub-card tilt reveal-scale ph-card" style="--i:0;">
         
@@ -277,6 +290,7 @@
           <span class="go">Xem chi tiết <span class="arrow">→</span></span>
         </div>
       </a>
+      <div class="zone-heading" id="op3-khu"><span>THE CROWN</span><h3>Ocean Park 3</h3><p>08 phân khu · chọn một khu để xem chi tiết</p></div>
       <a href="op3-vinh-thien-duong.html" class="sub-card tilt reveal-scale ph-card" style="--i:2;">
         
   <div class="ph-img zoom " style="--g1:#1E6F8E; --g2:#79D2C0;">

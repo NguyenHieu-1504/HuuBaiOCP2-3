@@ -16,6 +16,7 @@
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 html{scroll-behavior:smooth;}
+section[id], .zone-heading[id]{ scroll-margin-top:96px; }
 body{
   font-family: var(--sans);
   color: var(--ink);
@@ -93,10 +94,20 @@ h1,h2,h3{ font-family: var(--serif); font-weight:600; letter-spacing:-0.01em; }
 .home-hero-dao-ngoc{
   overflow:hidden;
   position:relative;
-  background-image: linear-gradient(90deg, rgba(243,238,226,.97) 0%, rgba(243,238,226,.88) 48%, rgba(243,238,226,.3) 100%), url('images/O3/DaoNgoc/dn01.jpg');
-  background-size:cover;
-  background-position:center;
+  background: radial-gradient(ellipse at 88% 12%, #fff 0%, #F8F5ED 34%, var(--sand) 100%);
 }
+.hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+.hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
+.hero-actions .btn{ min-height:50px; }
+.home-project-grid{ display:grid; gap:14px; }
+.home-project-card{ position:relative; isolation:isolate; min-height:196px; overflow:hidden; padding:22px 24px; display:flex; flex-direction:column; justify-content:flex-end; color:#fff; border-radius:4px; box-shadow:0 18px 40px -26px rgba(10,48,73,.55); }
+.home-project-card .ph-img{ position:absolute; inset:0; z-index:-2; height:auto; transition:transform .7s var(--ease); }
+.home-project-card::before{ content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(7,28,41,.04) 5%,rgba(7,28,41,.82) 100%); }
+.home-project-card:hover .ph-img{ transform:scale(1.05); }
+.home-project-card .project-kicker{ font-size:.7rem; font-weight:700; letter-spacing:.12em; color:#F1D99F; }
+.home-project-card strong{ margin-top:4px; font:600 1.35rem var(--serif); }
+.home-project-card .project-arrow{ position:absolute; right:22px; bottom:22px; font-size:1.3rem; transition:transform .25s ease; }
+.home-project-card:hover .project-arrow{ transform:translate(3px,-3px); }
 .feature.dao-ngoc-feature{
   background-image: linear-gradient(90deg, rgba(8,36,51,.96) 0%, rgba(10,48,73,.88) 52%, rgba(8,36,51,.66) 100%), url('images/O3/DaoNgoc/dn01.jpg');
   background-size:cover;
@@ -181,6 +192,14 @@ section{ padding: clamp(56px,8vw,104px) 0; }
 
 /* ================= Card grids (subdivision cards) ================= */
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:28px; }
+.zone-jumps{ display:flex; gap:12px; flex-wrap:wrap; margin:-18px 0 28px; }
+.zone-jumps a{ display:flex; align-items:center; gap:12px; padding:11px 16px; border:1px solid var(--line); border-radius:3px; font-size:.88rem; font-weight:700; color:var(--navy); background:#fff; transition:background .2s ease,border-color .2s ease,transform .2s ease; }
+.zone-jumps a:hover{ background:var(--sand); border-color:var(--gold); transform:translateY(-2px); }
+.zone-jumps span{ font-size:.75rem; font-weight:500; color:#6C7B83; }
+.zone-heading{ grid-column:1/-1; padding:22px 0 4px; border-bottom:1px solid var(--line); }
+.zone-heading span{ font-size:.7rem; font-weight:700; letter-spacing:.14em; color:var(--gold); }
+.zone-heading h3{ margin-top:4px; font-size:1.5rem; }
+.zone-heading p{ margin-top:3px; color:#697981; font-size:.88rem; }
 .sub-card{
   border:1px solid var(--line);
   background:#fff;
@@ -188,7 +207,7 @@ section{ padding: clamp(56px,8vw,104px) 0; }
   transition: border-color .3s ease, box-shadow .35s ease, transform .35s var(--ease);
 }
 .sub-card:hover{ border-color: var(--navy); box-shadow: 0 22px 44px -22px rgba(10,48,73,.35); transform: translateY(-6px); }
-.sub-card .ph-img{ height:200px; }
+.sub-card .ph-img{ height:auto; aspect-ratio:3/2; }
 .sub-card .body{ padding:22px 22px 26px; display:flex; flex-direction:column; gap:10px; flex:1; }
 .sub-card .kicker{ font-size:0.76rem; color:var(--gold); font-weight:700; letter-spacing:.02em; }
 .sub-card h3{ font-size:1.2rem; }
@@ -253,6 +272,7 @@ section{ padding: clamp(56px,8vw,104px) 0; }
 .mini-stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .mini-stats div .num{ font-family:var(--serif); font-size:1.3rem; color:var(--navy); display:block; }
 .mini-stats div .label{ font-size:0.75rem; color:#5B6B75; }
+.data-note{ margin-top:14px; color:#697981; font-size:.78rem; }
 @media(max-width:760px){ .overview-grid{ grid-template-columns:1fr; } }
 
 /* ================= Location ================= */
@@ -323,8 +343,24 @@ footer{ border-top:1px solid var(--line); padding:32px 0; }
 
 @media(max-width:860px){
   .hero-grid, .feature-grid, .loc-grid, .contact-grid{ grid-template-columns:1fr; }
+  .home-project-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .home-project-card{ min-height:210px; padding:18px; }
   nav.links{ display:none; }
   .menu-toggle{ display:block; }
+}
+@media(max-width:560px){
+  .home-project-grid{ grid-template-columns:1fr; }
+  .home-project-card{ min-height:170px; }
+  .hero-actions{ display:grid; }
+  .hero-actions .btn{ justify-content:center; }
+  .zone-jumps{ display:grid; grid-template-columns:1fr 1fr; }
+  .zone-jumps a{ justify-content:space-between; gap:6px; padding:10px; font-size:.8rem; }
+  .zone-jumps span{ font-size:.68rem; }
+  .card-grid{ grid-template-columns:1fr; gap:18px; }
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
+  outline:3px solid var(--gold); outline-offset:3px;
 }
 nav.links.mobile-open{
   display:flex; position:absolute; top:76px; left:0; right:0;
@@ -333,5 +369,6 @@ nav.links.mobile-open{
 }
 
 @media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
   *{ animation:none !important; transition:none !important; }
 }

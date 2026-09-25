@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- O3 photo library ---------- */
   const o3Folders = {
@@ -49,11 +50,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (o2Images[folder]) return `images/O2/${folder}/${file}`;
     return `images/O3/${folder}/${file}`;
   };
+  const photoObserver = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const element = entry.target;
+      element.classList.add('photo');
+      element.style.backgroundImage = `url("${element.dataset.photoSrc}")`;
+      photoObserver.unobserve(element);
+    });
+  }, { rootMargin: '300px 0px' }) : null;
   const setPhoto = (element, folder, index = 0) => {
     const files = o2Images[folder] || o3Images[folder];
     if (!files) return;
-    element.classList.add('photo');
-    element.style.backgroundImage = `url("${imageUrl(folder, files[index % files.length])}")`;
+    element.dataset.photoSrc = imageUrl(folder, files[index % files.length]);
+    if (photoObserver) photoObserver.observe(element);
+    else {
+      element.classList.add('photo');
+      element.style.backgroundImage = `url("${element.dataset.photoSrc}")`;
+    }
   };
   const currentPage = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
   const currentFolder = o3Folders[currentPage];
@@ -128,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Tilt effect on cards ---------- */
   const tiltEls = document.querySelectorAll('.tilt');
-  tiltEls.forEach(el => {
+  if (!reduceMotion) tiltEls.forEach(el => {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       const x = (e.clientX - r.left) / r.width - 0.5;
@@ -140,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Hero art parallax (mouse-follow) ---------- */
   const parallax = document.querySelectorAll('.parallax');
-  window.addEventListener('mousemove', (e) => {
+  if (!reduceMotion) window.addEventListener('mousemove', (e) => {
     const px = (e.clientX / window.innerWidth) - 0.5;
     const py = (e.clientY / window.innerHeight) - 0.5;
     parallax.forEach(el => {
@@ -155,7 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (toggle && links) {
     toggle.addEventListener('click', () => {
       links.classList.toggle('mobile-open');
+      toggle.setAttribute('aria-expanded', String(links.classList.contains('mobile-open')));
     });
+    links.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      links.classList.remove('mobile-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   }
 
   /* ---------- Active nav link ---------- */
