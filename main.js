@@ -11,6 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
     'op3-vinh-xanh': 'VinhXanh',
     'dao-ngoc': 'DaoNgoc'
   };
+  const o2Folders = {
+    'op2-cha-la': 'ChaLa',
+    'op2-co-xanh': 'CoXanh',
+    'op2-dao-dua': 'DaoDua',
+    'op2-hai-au': 'HaiAu',
+    'op2-kinh-do-anh-sang': 'KinhDoAS',
+    'op2-ngoc-trai': 'NgocTrai',
+    'op2-san-ho': 'SanHo',
+    'op2-sao-bien': 'SaoBien'
+  };
   const o3Images = {
     O3Overview: ['o3-01.jpg', 'o3-02.jpg', 'o3-03.webp', 'o3-04.jpg'],
     AnhDuong: ['ad01.jpg', 'ad02.jpg', 'ad03.jpg', 'ad04.jpg', 'ad05.jpg', 'ad06.jpg', 'ad07.jpg', 'ad08.png'],
@@ -22,15 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
     VinhXanh: ['vx01.jpg', 'vx02.jpg', 'vx03.png', 'vx04.jpg', 'vx05.jpg', 'vx06.jpg', 'vx07.jpg', 'vx08.jpg', 'vx09.png'],
     DaoNgoc: ['dn01.jpg', 'dn02.jpg', 'dn03.jpg', 'dn04.jpg', 'dn05.jpg', 'dn06.jpg', 'dn07.jpg', 'dn08.jpg', 'dn09.jpg', 'dn10.jpg', '1788944100225_5159154718858587108_g1770917234949095407_086cfdaffa5026819329dfd9005fb879.jpg', '1788944100233_5159154718858587108_g1770917234949095407_81e6cd25121bb402048b875f80710d34.jpg']
   };
-  const imageUrl = (folder, file) => folder === 'O3Overview' ? `images/O3/${file}` : `images/O3/${folder}/${file}`;
+  const o2Images = {
+    O2Overview: ['o2-01.jpg', 'o2-02.jpg', 'o2-03.jpg'],
+    ChaLa: ['cl01.jpg', 'cl02.jpg', 'cl03.jpg', 'cl04.jpg', 'cl05.webp', 'cl06.jpg', 'cl07.jpg', 'cl08.jpg'],
+    CoXanh: ['cx01.png', 'cx02.jpg', 'cx03.jpg', 'cx04.jpg', 'cx05.jpeg', 'cx06.jpg', 'cx07.jpg', 'cx08.jpg', 'cx09.jpg'],
+    DaoDua: ['dd01.jpg', 'dd02.jpg', 'dd03.jpg', 'dd04.jpg', 'dd05.jpg', 'dd06.jpg', 'dd07.jpg', 'dd08.jpg'],
+    HaiAu: ['ha01.jpg', 'ha02.jpg', 'ha03.jpg', 'ha04.jpg', 'ha05.jpg', 'ha06].jpg', 'ha07.jpg', 'ha08.jpg'],
+    KinhDoAS: ['kd01.jpg', 'kd02.jpg', 'kd03.jpg', 'kd04.jpg', 'kd05.jpg', 'kd06.jpg', 'kd07.webp'],
+    NgocTrai: ['nt01.jpg', 'nt02.jpg', 'nt03.jpg', 'nt04.jpg', 'nt05.jpg', 'nt06.webp', 'nt07.jpg', 'nt08.jpg'],
+    SanHo: ['sh01.png', 'sh02.png', 'sh03.jpg', 'sh04.jpg', 'sh05.jpg', 'sh06.jpg', 'sh07.jpg', 'sh08.jpg', 'sh09.jpg'],
+    SaoBien: ['sb01.jpg', 'sb02.jpg', 'sb03.webp', 'sb04.jpg', 'sb05.jpg', 'sb06.jpg', 'sb07.jpg', 'sb08.webp']
+  };
+  const imageUrl = (folder, file) => {
+    if (folder === 'O3Overview') return `images/O3/${file}`;
+    if (folder === 'O2Overview') return `images/O2/${file}`;
+    if (o2Images[folder]) return `images/O2/${folder}/${file}`;
+    return `images/O3/${folder}/${file}`;
+  };
   const setPhoto = (element, folder, index = 0) => {
-    const files = o3Images[folder];
+    const files = o2Images[folder] || o3Images[folder];
     if (!files) return;
     element.classList.add('photo');
     element.style.backgroundImage = `url("${imageUrl(folder, files[index % files.length])}")`;
   };
   const currentPage = (location.pathname.split('/').pop() || 'index.html').replace('.html', '');
   const currentFolder = o3Folders[currentPage];
+  const currentO2Folder = o2Folders[currentPage];
   document.querySelectorAll('[data-dao-photo]').forEach((element) => {
     setPhoto(element, 'DaoNgoc', o3Images.DaoNgoc.indexOf(element.dataset.daoPhoto));
   });
@@ -41,15 +68,21 @@ document.addEventListener('DOMContentLoaded', () => {
       setPhoto(element, currentFolder, currentPhotoIndex++);
       return;
     }
+    if (currentO2Folder) {
+      setPhoto(element, currentO2Folder, currentPhotoIndex++);
+      return;
+    }
     const link = element.closest('a');
     const href = link?.getAttribute('href') || '';
     const linkedPage = href.split('/').pop().replace('.html', '');
-    const folder = o3Folders[linkedPage] || currentFolder;
+    const folder = o3Folders[linkedPage] || o2Folders[linkedPage] || currentFolder;
     if (folder) {
       const siblings = [...document.querySelectorAll('.ph-img')].filter(item => item.closest('a')?.getAttribute('href')?.includes(linkedPage));
       setPhoto(element, folder, Math.max(0, siblings.indexOf(element)));
     } else if (href === 'ocean-park-3.html' || currentPage === 'ocean-park-3') {
       setPhoto(element, 'O3Overview', elementIndex);
+    } else if (href === 'ocean-park-2.html' || currentPage === 'ocean-park-2') {
+      setPhoto(element, 'O2Overview', elementIndex);
     } else if (currentPage === 'index' && element.closest('#dao-ngoc-preview')) {
       setPhoto(element, 'DaoNgoc', elementIndex);
     }
