@@ -173,6 +173,10 @@ header.site{
 .nav-row{ display:flex; align-items:center; justify-content:space-between; height:76px; }
 .logo{ font-family: var(--serif); font-size:1.1rem; font-weight:600; white-space:nowrap; }
 .logo span{ color: var(--azure); }
+.brand-partners{ display:flex; align-items:center; gap:7px; }
+.brand-logo-surface{ width:60px; height:44px; display:flex; align-items:center; justify-content:center; overflow:hidden; padding:3px; border-radius:2px; background:var(--navy); }
+.brand-logo-surface img{ width:100%; height:100%; max-width:none; object-fit:fill; }
+.brand-logo-surface-ssm img{ width:72px; height:72px; }
 nav.links{ display:flex; gap:28px; font-size:0.9rem; font-weight:500; }
 nav.links a{ position:relative; padding:6px 0; transition: color .25s ease; }
 nav.links a::after{
@@ -385,7 +389,17 @@ footer{ border-top:1px solid var(--line); padding:32px 0; }
   nav.links{ display:none; }
   .menu-toggle{ display:block; }
 }
+@media(max-width:1180px){
+  nav.links{ display:none; }
+  .menu-toggle{ display:block; }
+}
 @media(max-width:560px){
+  .nav-row{ height:64px; }
+  .logo{ font-size:.88rem; }
+  .brand-partners{ gap:4px; }
+  .brand-logo-surface{ width:38px; height:30px; padding:2px; }
+  .brand-logo-surface-ssm img{ width:48px; height:48px; }
+  .nav-cta>.btn{ display:none; }
   section{ padding:38px 0; }
   .section-head{ margin-bottom:24px; }
   .home-project-grid{ grid-template-columns:1fr; }
@@ -402,7 +416,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline:3px solid var(--gold); outline-offset:3px;
 }
 nav.links.mobile-open{
-  display:flex; position:absolute; top:76px; left:0; right:0;
+  display:flex; position:absolute; top:100%; left:0; right:0;
   background:#fff; flex-direction:column; padding:18px clamp(20px,4vw,56px);
   border-bottom:1px solid var(--line); gap:16px;
 }
