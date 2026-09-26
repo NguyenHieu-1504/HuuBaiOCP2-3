@@ -114,6 +114,12 @@ h1,h2,h3{ font-family: var(--serif); font-weight:600; letter-spacing:-0.01em; }
   background-position:center;
 }
 .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+#dao-ngoc-hero h1{ font-size:clamp(2.4rem,4.6vw,3.8rem); line-height:1.08; margin:14px 0 20px; max-width:16ch; }
+#dao-ngoc-hero .hero-grid>div:first-child>p{ font-size:1.08rem; max-width:52ch; color:#2B3D48; margin-bottom:32px; }
+#dao-ngoc-hero .dao-ngoc-actions{ gap:16px; margin-bottom:32px; }
+#dao-ngoc-hero .dao-ngoc-stats{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+#dao-ngoc-hero .dao-ngoc-stats .stat{ min-width:0; padding-right:8px; }
+#dao-ngoc-hero .hero-art{ width:100%; aspect-ratio:1/1; }
 .hero-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
 .hero-actions .btn{ min-height:50px; }
 .home-project-grid{ display:grid; gap:14px; }
@@ -425,6 +431,18 @@ footer{ border-top:1px solid var(--line); padding:32px 0; }
   .home-project-card{ min-height:210px; padding:18px; }
   nav.links{ display:none; }
   .menu-toggle{ display:block; }
+}
+@media(max-width:760px){
+  .dao-ngoc-hero{ padding:32px 0 44px; background-image:linear-gradient(180deg,rgba(243,238,226,.97) 0%,rgba(243,238,226,.92) 58%,rgba(243,238,226,.86) 100%),url('images/O3/DaoNgoc/dn01.jpg'); background-position:center; }
+  #dao-ngoc-hero .hero-grid{ gap:24px; }
+  #dao-ngoc-hero h1{ font-size:clamp(2rem,8vw,2.7rem); line-height:1.12; max-width:18ch; margin:12px 0 16px; }
+  #dao-ngoc-hero .hero-grid>div:first-child>p{ font-size:.98rem; line-height:1.65; max-width:none; margin-bottom:20px; }
+  #dao-ngoc-hero .dao-ngoc-actions{ display:grid; grid-template-columns:1fr; gap:10px; margin-bottom:22px; }
+  #dao-ngoc-hero .dao-ngoc-actions .btn{ justify-content:center; }
+  #dao-ngoc-hero .dao-ngoc-stats{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 12px; padding-top:18px; }
+  #dao-ngoc-hero .dao-ngoc-stats .num{ font-size:1.45rem; }
+  #dao-ngoc-hero .dao-ngoc-stats .label{ font-size:.76rem; }
+  #dao-ngoc-hero .hero-art{ aspect-ratio:4/3; max-height:340px; }
 }
 @media(max-width:1180px){
   nav.links{ display:none; }
