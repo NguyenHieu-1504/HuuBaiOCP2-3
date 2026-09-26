@@ -404,7 +404,7 @@ form .btn{ width:100%; justify-content:center; margin-top:6px; }
 .analysis-advice h4{ margin-bottom:10px; font:600 1.15rem var(--serif); color:var(--navy); }
 .analysis-advice-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
 .analysis-advice-grid p{ margin-bottom:0; }
-.analysis-media{ position:sticky; top:100px; min-width:0; }
+.analysis-media{ position:sticky; top:100px; min-width:0; display:grid; gap:20px; }
 .analysis-media .reel-card{ margin:0; }
 .reel-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:start; }
 .reel-grid.reel-grid--opinions{ grid-template-columns:minmax(0,min(420px,100%)); max-width:420px; margin-inline:auto; }
