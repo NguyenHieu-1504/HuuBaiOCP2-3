@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- O3 photo library ---------- */
   const o3Folders = {
     'op3-anh-duong': 'AnhDuong',
-    'op3-hai-dang': 'HaiDang',
     'op3-pho-bien': 'PhoBien',
     'op3-thoi-dai': 'ThoiDai',
     'op3-vinh-tay': 'VinhTay',
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const o3Images = {
     O3Overview: ['o3-01.jpg', 'o3-02.jpg', 'o3-03.webp', 'o3-04.jpg'],
     AnhDuong: ['ad01.jpg', 'ad02.jpg', 'ad03.jpg', 'ad04.jpg', 'ad05.jpg', 'ad06.jpg', 'ad07.jpg', 'ad08.png'],
-    HaiDang: ['hd01.jpg', 'hd02.jpg', 'hd03.jpg', 'hd04.jpg', 'hd05.jpg', 'hd06.png', 'hd078.jpg', 'hd09.webp', 'hd10.png'],
     PhoBien: ['pb01.jpg', 'pb02.jpg', 'pb04.jpg', 'pb05.jpg', 'pb06.jpg', 'pb07.jpg', 'pb08.jpg', 'pb09.jpg'],
     ThoiDai: ['td01.jpg', 'td02.jpg', 'td03.jpg', 'td04.jpeg', 'td05.png', 'td06.jpeg', 'td07.jpg', 'td08.jpg'],
     VinhTay: ['vt01.jpg', 'vt02.webp', 'vt03.jpg', 'vt04.jpg', 'vt05.jpg', 'vt06.jpg', 'vt07.png', 'vt08.jpg', 'vt09.jpg'],

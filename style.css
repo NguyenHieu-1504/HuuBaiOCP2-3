@@ -519,3 +519,69 @@ nav.links.mobile-open{
   ::view-transition-old(root), ::view-transition-new(root){ animation:none !important; }
   *{ animation:none !important; transition:none !important; }
 }
+
+/* Dao Ngoc product, pricing and layout sections */
+.dao-data-section{padding:clamp(52px,7vw,88px) 0}
+.dao-data-section:nth-of-type(even){background:#F7F5EF}
+.dao-data-section .section-head{max-width:76ch}
+.dao-overview-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(20px,3vw,36px);align-items:start}
+.dao-count-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dao-count-card{padding:clamp(20px,3vw,30px);border:1px solid var(--line);background:#fff;min-height:145px}
+.dao-count-card:last-child{grid-column:1/-1}
+.dao-count{display:block;color:#0C5960;font:600 clamp(2rem,4vw,3rem) 'Lora',Georgia,serif;line-height:1}
+.dao-count-card h3{font:500 1rem 'Be Vietnam Pro',sans-serif;margin:12px 0 0}
+.dao-image-card{margin:0;overflow:hidden;background:#fff;border:1px solid rgba(18,58,65,.12);border-radius:4px}
+.dao-image-card img{display:block;width:100%;height:auto;object-fit:contain}
+.dao-image-card figcaption{padding:12px 15px;color:#40545C;font-size:.9rem;line-height:1.5}
+.dao-location-image img{max-height:760px;width:100%;object-fit:contain}
+.dao-policy-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,48px);align-items:center;max-width:1120px;margin:0 auto}
+.dao-policy-grid figure{max-width:560px}
+.dao-policy-list{display:grid;gap:14px}
+.dao-policy-list article{display:flex;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);padding:20px}
+.dao-policy-list article>span{flex:0 0 104px;color:#0C5960;font:600 1.8rem 'Lora',Georgia,serif}
+.dao-policy-list h3,.dao-product-copy h3,.dao-price-copy h3,.dao-layout-copy h3{margin:0 0 8px;font:600 1.05rem 'Be Vietnam Pro',sans-serif;color:#173842}
+.dao-policy-list p{margin:0;color:#596971;line-height:1.55}
+.dao-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.dao-product-card,.dao-price-card,.dao-layout-card{min-width:0;background:#fff;border:1px solid rgba(18,58,65,.12);box-shadow:0 8px 24px rgba(18,58,65,.06)}
+.dao-product-card{display:flex;flex-direction:column}
+.dao-product-card .dao-image-card img{height:auto;aspect-ratio:auto;object-fit:contain}
+.dao-product-copy,.dao-price-copy{padding:clamp(16px,2vw,24px)}
+.dao-product-copy h3{min-height:2.5em}
+.dao-spec-list{margin:12px 0 0;display:grid;gap:0}
+.dao-spec-list>div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #E9ECE8}
+.dao-spec-list>div:last-child{border-bottom:0}
+.dao-spec-list dt{color:#65737A}
+.dao-spec-list dd{margin:0;text-align:right;font-weight:600;color:#243D45}
+.dao-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.dao-price-card{display:flex;flex-direction:column;align-items:stretch;overflow:hidden}
+.dao-price-card .dao-image-card{border:0;border-radius:0}
+.dao-price-card .dao-image-card img{width:100%;height:auto;max-height:none;object-fit:contain}
+.dao-price-copy h3{line-height:1.45}
+.dao-price{color:#A57931!important;font-size:1.12rem}
+.dao-layout-card{padding:clamp(14px,2vw,24px);margin-top:24px}
+.dao-layout-image{max-width:1050px;margin:0 auto 20px}
+.dao-layout-image img{width:100%;height:auto}
+.dao-layout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.dao-layout-copy{min-width:0;padding:clamp(14px,2vw,22px);background:#F8F8F5}
+.dao-layout-copy h3{line-height:1.4}
+.dao-layout-copy h4{margin:18px 0 8px;color:#173842}
+.dao-layout-copy ul{margin:8px 0 0;padding-left:20px;color:#40545C;line-height:1.7}
+.dao-layout-summary{color:#40545C;line-height:1.6;margin:8px 0}
+.dao-area-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.94rem}
+.dao-area-table th,.dao-area-table td{text-align:left;padding:8px 10px;border:1px solid #DCE2DF}
+.dao-area-table th{background:#EAF0EC;color:#173842}
+@media(max-width:1000px){
+  .dao-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dao-price-card{display:flex}
+}
+@media(max-width:720px){
+  .dao-overview-grid,.dao-policy-grid,.dao-layout-grid{grid-template-columns:minmax(0,1fr)}
+  .dao-count-card{min-height:120px}
+  .dao-product-grid,.dao-price-grid{grid-template-columns:minmax(0,1fr)}
+  .dao-policy-grid figure{max-width:none}
+  .dao-price-card{display:flex}
+  .dao-layout-card{padding:10px}
+  .dao-layout-copy{padding:14px}
+  .dao-spec-list>div{align-items:flex-start}
+  .dao-spec-list dt{max-width:58%}
+}
